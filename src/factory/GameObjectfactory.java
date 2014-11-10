@@ -1,6 +1,6 @@
 package factory;
 
-public class GameObjectfactory {
+public class GameObjectfactory extends AbstractFactory {
 
 	GameObject G_object ;
 	
@@ -16,5 +16,11 @@ public class GameObjectfactory {
 			return new Player(name,health,x,y,changemanager);
 		}
 		return null ;
+	}
+	@Override
+	public Enemy createEnemy(String type, String name, int x, int y,
+			ChangeManager changemanager) {
+		
+		return null;
 	}
 }

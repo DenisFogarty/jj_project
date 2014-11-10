@@ -1,7 +1,6 @@
 package factory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Enemy implements I_enemy,GameObject {
@@ -91,7 +90,7 @@ public class Enemy implements I_enemy,GameObject {
 	public void attach(I_Observer observer) {
 		// TODO Auto-generated method stub
 		chman.register(this, observer) ;
-		observers.add(observer) ;
+		//observers.add(observer) ;
 	}
 	public void attachsuib(I_Subject sub) {
 		// TODO Auto-generated method stub

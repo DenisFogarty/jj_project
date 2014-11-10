@@ -1,5 +1,6 @@
 package command;
 
+import factory.I_Player;
 import State.GameState;
 
 //Concrete class
@@ -12,8 +13,8 @@ public class PlayerLeft implements Command
 		this.targetState = state ;
 	}
 
-	public void execute()
+	public void execute(I_Player player)
 	{
-		this.targetState.leftButtonAction(); ; 
+		this.targetState.leftButtonAction(player); ; 
 	}
 }

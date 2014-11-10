@@ -1,5 +1,6 @@
 package command;
 
+import factory.I_Player;
 import State.GameState;
 
 //Concrete command class
@@ -12,9 +13,9 @@ public class PauseGame implements Command
 		this.targetState = state ;
 	}
 	
-	public void execute() 
+	public void execute(I_Player player) 
 	{
-		this.targetState.PauseGameAction() ;
+		this.targetState.PauseGameAction(player) ;
 	}
 
 }

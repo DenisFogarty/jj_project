@@ -1,5 +1,7 @@
 package command;
 
+import factory.I_Player;
+
 
 //Creates the commands
 public class Control
@@ -23,28 +25,28 @@ public class Control
         this.resume = resume ;
     }
     
-    public void rightButton()
+    public void rightButton(I_Player player)
     {
-    	right.execute() ;
+    	right.execute(player) ;
     }
     
-    public void leftButton()
+    public void leftButton(I_Player player)
     {
-    	left.execute() ;
+    	left.execute(player) ;
     }
     
-    public void pauseGame()
+    public void pauseGame(I_Player player)
     {
-    	pause.execute() ;
+    	pause.execute(player) ;
     }
     
-    public void offGame()
+    public void offGame(I_Player player)
     {
-    	off.execute() ;
+    	off.execute(player) ;
     }
     
-    public void resumeGame()
+    public void resumeGame(I_Player player)
     {
-    	resume.execute() ;
+    	resume.execute(player) ;
     }
 }

@@ -2,7 +2,7 @@ package factory;
 
 import java.util.HashMap;
 
-public class GameEnemyFactory {
+public class GameEnemyFactory extends AbstractFactory {
 	HashMap<String, Enemy> enemyTypes = new HashMap<String, Enemy>();
 
 	public Enemy createEnemy(String type,String name,int x,int y,ChangeManager changemanager) {
@@ -23,5 +23,11 @@ public class GameEnemyFactory {
 			}
 		}
 		return enemy;
+	}
+
+	@Override
+	public GameObject createGameobject(String type, String name, int health,int x, int y, ChangeManager changemanager) {
+	    System.out.println("Wrong Factory");
+		return null;
 	}
 }

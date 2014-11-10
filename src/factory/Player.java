@@ -98,11 +98,13 @@ public class Player implements I_Player,GameObject
 		observers.remove(observer) ;
 		}
 	}
+	
 	public void move() 
 	{
 		this.setCoordinates(50, 60) ;
 		notifyobservers();
 	}
+	
 	@Override
 	public void notifyobservers() {
 		//System.out.println(observers.get(0));
