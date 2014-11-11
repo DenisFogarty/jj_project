@@ -1,2 +1,4 @@
 /bin/
 /.settings/
+/.sonar/
+sonar-project.properties
