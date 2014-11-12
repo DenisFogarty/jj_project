@@ -13,9 +13,9 @@ public class PauseGame implements Command
 		this.targetState = state ;
 	}
 	
-	public void execute(I_Player player) 
+	public void execute() 
 	{
-		this.targetState.PauseGameAction(player) ;
+		this.targetState.PauseGameAction() ;
 	}
 
 }

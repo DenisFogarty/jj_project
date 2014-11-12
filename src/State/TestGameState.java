@@ -15,58 +15,61 @@ import factory.Level;
 
 public class TestGameState 
 {
-	static GameMachine gameMachine = new GameMachine() ;
-	static Scanner scan ;
-	static I_Player player ;
-	static Level level ;
-	static ArrayList<I_enemy> enemyList ;
+//	static GameMachine gameMachine = new GameMachine() ;
+//	static Scanner scan ;
+//	static I_Player player ;
+//	static Level level ;
+//	static ArrayList<I_enemy> enemyList ;
 	
 	public static void main(String[] args)
 	{
-		gameMachine.getGameState().stateOfGame(player, level, enemyList) ;
+		GameEngine newGame = new GameEngine() ;
+		//gameMachine.getGameState().stateOfGame() ;
 		System.out.println() ;
-		gameMachine.setGameState(new Resume()) ;
+		//gameMachine.setGameState(new Resume()) ;
+		newGame.setGameState(newGame.getStartsate() );
+		newGame.getStartsate().stateOfGame();
 		Control control = new Control() ;
-		PlayerRight pr = new PlayerRight(gameMachine.getGameState()) ;
-		PlayerLeft pl = new PlayerLeft(gameMachine.getGameState()) ;
-		PauseGame pg = new PauseGame(gameMachine.getGameState()) ;
-		OffGame og = new OffGame(gameMachine.getGameState()) ;
-		ResumeGame rg = new ResumeGame(gameMachine.getGameState()) ;
+		PlayerRight pr = new PlayerRight(newGame.getResume()) ;
+		PlayerLeft pl = new PlayerLeft(newGame.getResume()) ;
+		PauseGame pg = new PauseGame(newGame.getGameState()) ;
+		OffGame og = new OffGame(newGame.getGameState()) ;
+		ResumeGame rg = new ResumeGame(newGame.getGameState()) ;
 		
 		control.setCommand(pr, pl, pg, og, rg);
 		
-		scan = new Scanner(System.in) ;
+		Scanner scan = new Scanner(System.in) ;
 		String line ;
-		while(!(gameMachine.getGameState() instanceof Off))
+		while(!(newGame.getGameState() instanceof Off))
 		{
 			System.out.print("Type start or pause or resume or off or move player \n") ;
 			line = scan.nextLine() ;
 			
 			if(line.equals("p"))
 			{	
-				gameMachine.setGameState(new Pause()) ;
-				control.pauseGame(player);
+				newGame.setGameState(newGame.getPause()) ;
+				control.pauseGame();
 				//gameMachine.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("r"))
-			{
-				gameMachine.setGameState(new Resume()) ;
-				control.resumeGame(player);
+			{ 
+				newGame.setGameState(newGame.getResume()) ;
+				control.resumeGame();
 				//gameMachine.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("off"))
 			{
-				gameMachine.setGameState(new Off()) ;
-				control.offGame(player);
+				//gameMachine.setGameState(new Off()) ;
+			//	control.offGame(player);
 				//gameMachine.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("a"))
 			{
-				control.leftButton(player);
+				control.leftButton();
 			}
 			else if(line.equals("d"))
 			{
-				control.rightButton(player);
+				control.rightButton();
 			}
 			else
 			{

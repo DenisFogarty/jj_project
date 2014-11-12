@@ -13,8 +13,8 @@ public class OffGame implements Command
 		this.targetState = state ;
 	}
 
-	public void execute(I_Player player)
+	public void execute()
 	{
-		this.targetState.OffGameAction(player); ; 
+		this.targetState.OffGameAction(); ; 
 	}
 }

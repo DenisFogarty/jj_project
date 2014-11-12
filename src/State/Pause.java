@@ -8,35 +8,43 @@ import factory.Level;
 
 public class Pause implements GameState
 {
-	public void stateOfGame(I_Player play,Level lev,List<I_enemy> enemyList) 
+	
+	private GameEngine engine ;
+	public Pause(GameEngine gameEngine) {
+		this.engine = gameEngine ;
+	}
+
+	public void stateOfGame() 
 	{
-		System.out.print("The game has been paused \n") ;		
+		engine.startgame(false);
+		System.out.print("The game has already  started") ;		
 	}
 
 	@Override
-	public void leftButtonAction(I_Player play) {
+	public void leftButtonAction() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void RightButtonAction(I_Player play) {
+	public void RightButtonAction() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void PauseGameAction(I_Player player) 
+	public void PauseGameAction() 
 	{
+		engine.setGameState(engine.getPause());
 		System.out.print("The game cannot change state \n") ;
 	}
 
-	public void OffGameAction(I_Player player) 
+	public void OffGameAction() 
 	{
 		
 	}
 
 	@Override
-	public void ResumeGameAction(I_Player player) {
+	public void ResumeGameAction() {
 		// TODO Auto-generated method stub
 		
 	}

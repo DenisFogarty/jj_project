@@ -5,7 +5,7 @@ public class GameMachine
 	
 	public GameMachine()
 	{		
-		gameState = new Start() ;
+		gameState = new Start(null) ;
 	}
 	
 	public void setGameState(GameState gs)

@@ -123,6 +123,16 @@ public class Player implements I_Player,GameObject
 			System.out.println(((GameObject) ob).getname() + "position has changed : " + "/n" + ((GameObject) this.observers.get(index)).getname() + "notified");
 		}
 	}
+	@Override
+	public void moveleft() {
+		this.setxCoord(getxCoord()-2);
+		notifyobservers();
+	}
+	@Override
+	public void moveRight() {
+		this.setxCoord(getxCoord()+2);
+		notifyobservers();
+	}
 	
 	
 }

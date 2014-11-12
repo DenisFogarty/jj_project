@@ -13,8 +13,8 @@ public class PlayerRight implements Command
 		this.targetState = state ;
 	}
 
-	public void execute(I_Player player)
+	public void execute()
 	{
-		this.targetState.RightButtonAction(player) ; 
+		this.targetState.RightButtonAction() ; 
 	}
 }

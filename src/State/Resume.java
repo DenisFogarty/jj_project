@@ -9,32 +9,39 @@ import factory.Level;
 public class Resume implements GameState
 {
 	
-	public void stateOfGame(I_Player play,Level lev,List<I_enemy> enemyList) 
+	private GameEngine engine ;
+	
+	public Resume(GameEngine engine)
 	{
+		this.engine = engine ;
+	}
+	public void stateOfGame() 
+	{
+		engine.startgame(false);
 		System.out.print("The game has resumed \n") ;		
 	}
 
-	public void leftButtonAction(I_Player player)
+	public void leftButtonAction()
 	{
-		
+		engine.movePlayerL();
 		System.out.print("Player moves left \n") ;
 	}
 
-	public void RightButtonAction(I_Player player) 
+	public void RightButtonAction() 
 	{
-		player.move();
+		engine.movePlayerR();
 		System.out.print("Player moves right \ns") ;
 	}
 
-	public void PauseGameAction(I_Player player) 
+	public void PauseGameAction()
 	{
 	}
 
-	public void OffGameAction(I_Player player)
+	public void OffGameAction()
 	{
 	}
 
-	public void ResumeGameAction(I_Player player) 
+	public void ResumeGameAction() 
 	{
 	}
 }

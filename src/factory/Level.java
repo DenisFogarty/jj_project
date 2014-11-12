@@ -8,7 +8,7 @@ public class Level {
 	private int height ; 
 	private ArrayList<I_enemy> EnemyList ;
 	private ArrayList<I_Obstacle> obstacles ;
-
+    private I_Player Player ;
 	public Level(int width,int height)
 	{
 		this.width = width ;
@@ -18,6 +18,17 @@ public class Level {
 		
 	}
 
+	
+	public void addPlayer(I_Player player)
+	{
+		if(player.getxCoord()> width -1)
+		{
+			System.out.println("Player position out of bounds..recalcualting") ;
+			player.setCoordinates(width/3, 0);
+		}
+		
+		this.Player = player ;
+	}
 	public int getWidth() {
 		return width;
 	}

@@ -1,0 +1,120 @@
+package State;
+
+import java.util.ArrayList;
+
+import factory.ChangeManager;
+import factory.Enemy;
+import factory.FactoryCreator;
+import factory.I_Player;
+import factory.I_enemy;
+import factory.Level;
+
+
+
+public class GameEngine {
+	
+	GameState Pause ;
+	
+	GameState Resume ;
+	GameState Start ;
+	private GameState currentState ; 
+	private Level level ;
+	private I_Player player ;
+	private ArrayList<I_enemy> enemyList ;
+	private ChangeManager change ;
+	public GameEngine()
+	{
+		Pause = new Pause(this) ;
+		Resume = new Resume(this) ;
+		Start = new Start(this) ;
+		
+		currentState = Start ;
+	
+	}
+	
+	
+  public void startgame(boolean startState)
+  {
+	  if(startState ==true)
+	  {
+			 change = new ChangeManager();
+			enemyList = new ArrayList<I_enemy>() ;
+			Enemy enemy2 = FactoryCreator.getFactory("small enemy").createEnemy("small enemy", "George", 75, 30, change);
+			player = (I_Player) FactoryCreator.getFactory("player").createGameobject("player","Playa",201,0,56,change) ;
+			
+			String[] enemyType = {"small enemy", "regular enemy", "large enemy"} ; 
+			level = new Level(200, 100) ;
+			level.addPlayer(player);
+			for(int i = 0 ; i <= Math.random()*100 ; i++) 
+			{   int xpos = level.getWidth()/2 + (int)Math.random()* (level.getWidth() - level.getWidth()/2) ;
+				int ypos = level.getHeight()/2 + (int)Math.random()* (level.getHeight() - level.getHeight()/2) ;
+				int temp = (int)Math.random()*3 ;
+				enemyList.add(FactoryCreator.getFactory(enemyType[temp]).createEnemy(enemyType[temp], "Enemy" + i, xpos, ypos, change));
+				player.attach(enemyList.get(i));
+				enemyList.get(i).attach(player);
+			}
+			
+			for(int i = 0 ; i < enemyList.size() ; i++)
+			{
+				for(int j = 0 ; j < enemyList.size() ; j++)
+				{
+					if(j != i)
+					{
+						enemyList.get(i).attach(enemyList.get(j));
+					}
+				}
+			}
+			
+			System.out.println(enemy2.toString()) ;
+			System.out.println(player.toString());
+	  }
+  }
+  
+  
+  public void movePlayerL(){
+	  if(player.getxCoord()!=0)
+	  {
+		  player.moveleft() ;
+	  }
+  }
+  
+  public void movePlayerR(){
+	  if(player.getxCoord() <=level.getWidth()-2)
+	  {
+		  player.moveRight() ;
+	  }
+  }
+  
+  
+  public void setGameState(GameState gs)
+	{
+		currentState= gs ;
+	}
+	
+	public  GameState getGameState()
+	{
+		return currentState;
+	}
+  
+	public GameState getPause() {
+		return Pause;
+	}
+
+	public void Pause()
+	{
+		System.out.println("Game has been paused");
+	}
+
+	
+	public GameState getStartsate()
+	{
+		return this.Start ;
+	}
+
+	public GameState getResume() {
+		// TODO Auto-generated method stub
+		return this.Resume;
+	}
+  
+
+}

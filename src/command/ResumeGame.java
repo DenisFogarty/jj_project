@@ -13,9 +13,9 @@ public class ResumeGame implements Command
 		this.targetState = state ;
 	}
 	
-	public void execute(I_Player player) 
+	public void execute() 
 	{
-		this.targetState.ResumeGameAction(player) ;
+		this.targetState.ResumeGameAction() ;
 	}
 
 }

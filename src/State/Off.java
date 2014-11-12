@@ -8,25 +8,25 @@ import factory.Level;
 
 public class Off implements GameState
 {
-	public void stateOfGame(I_Player play,Level lev,List<I_enemy> enemyList) 
+	public void stateOfGame()
 	{
 		System.out.print("The game is off \n") ;
 	}
 
 	@Override
-	public void leftButtonAction(I_Player play) {
+	public void leftButtonAction() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void RightButtonAction(I_Player play) {
+	public void RightButtonAction() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void PauseGameAction(I_Player player) {
+	public void PauseGameAction() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -36,7 +36,13 @@ public class Off implements GameState
 	}
 
 	@Override
-	public void ResumeGameAction(I_Player player) {
+	public void ResumeGameAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OffGameAction() {
 		// TODO Auto-generated method stub
 		
 	}
