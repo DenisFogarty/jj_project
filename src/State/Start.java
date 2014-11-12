@@ -1,15 +1,5 @@
 package State;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import factory.ChangeManager;
-import factory.Enemy;
-import factory.FactoryCreator;
-import factory.I_Player;
-import factory.I_enemy;
-import factory.Level;
-
 public class Start implements GameState
 {
 	GameEngine engine ;
@@ -40,11 +30,6 @@ public class Start implements GameState
 		engine.movePlayerR();
 
 	}
-
-
-
-
-
 
 	@Override
 	public void PauseGameAction() {

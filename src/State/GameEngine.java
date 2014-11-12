@@ -2,6 +2,8 @@ package State;
 
 import java.util.ArrayList;
 
+import bridge.Drawing;
+import bridge.G1_Draw;
 import factory.ChangeManager;
 import factory.Enemy;
 import factory.FactoryCreator;
@@ -22,6 +24,8 @@ public class GameEngine {
 	private I_Player player ;
 	private ArrayList<I_enemy> enemyList ;
 	private ChangeManager change ;
+	Drawing g1 = new G1_Draw() ;
+	
 	public GameEngine()
 	{
 		Pause = new Pause(this) ;
@@ -37,10 +41,11 @@ public class GameEngine {
   {
 	  if(startState ==true)
 	  {
-			 change = new ChangeManager();
+			change = new ChangeManager();
 			enemyList = new ArrayList<I_enemy>() ;
-			Enemy enemy2 = FactoryCreator.getFactory("small enemy").createEnemy("small enemy", "George", 75, 30, change);
 			player = (I_Player) FactoryCreator.getFactory("player").createGameobject("player","Playa",201,0,56,change) ;
+			player.setDrawType(g1) ;
+			player.draw();
 			
 			String[] enemyType = {"small enemy", "regular enemy", "large enemy"} ; 
 			level = new Level(200, 100) ;
@@ -65,7 +70,6 @@ public class GameEngine {
 				}
 			}
 			
-			System.out.println(enemy2.toString()) ;
 			System.out.println(player.toString());
 	  }
   }
@@ -114,6 +118,11 @@ public class GameEngine {
 	public GameState getResume() {
 		// TODO Auto-generated method stub
 		return this.Resume;
+	}
+	
+	public Level getLevel()
+	{
+		return level ;
 	}
   
 

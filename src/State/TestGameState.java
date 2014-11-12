@@ -1,6 +1,5 @@
 package State;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import command.Control;
@@ -9,26 +8,15 @@ import command.PauseGame;
 import command.PlayerLeft;
 import command.PlayerRight;
 import command.ResumeGame;
-import factory.I_Player;
-import factory.I_enemy;
-import factory.Level;
 
 public class TestGameState 
-{
-//	static GameMachine gameMachine = new GameMachine() ;
-//	static Scanner scan ;
-//	static I_Player player ;
-//	static Level level ;
-//	static ArrayList<I_enemy> enemyList ;
-	
+{	
 	public static void main(String[] args)
 	{
 		GameEngine newGame = new GameEngine() ;
-		//gameMachine.getGameState().stateOfGame() ;
-		System.out.println() ;
-		//gameMachine.setGameState(new Resume()) ;
 		newGame.setGameState(newGame.getStartsate() );
 		newGame.getStartsate().stateOfGame();
+		
 		Control control = new Control() ;
 		PlayerRight pr = new PlayerRight(newGame.getResume()) ;
 		PlayerLeft pl = new PlayerLeft(newGame.getResume()) ;
@@ -49,7 +37,7 @@ public class TestGameState
 			{	
 				newGame.setGameState(newGame.getPause()) ;
 				control.pauseGame();
-				//gameMachine.getGameState().stateOfGame() ;
+				//newGame.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("r"))
 			{ 
@@ -59,8 +47,8 @@ public class TestGameState
 			}
 			else if(line.equals("off"))
 			{
-				//gameMachine.setGameState(new Off()) ;
-			//	control.offGame(player);
+				newGame.setGameState(new Off()) ;
+				control.offGame();
 				//gameMachine.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("a"))

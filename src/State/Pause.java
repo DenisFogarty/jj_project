@@ -1,10 +1,5 @@
 package State;
 
-import java.util.List;
-
-import factory.I_Player;
-import factory.I_enemy;
-import factory.Level;
 
 public class Pause implements GameState
 {
@@ -17,7 +12,7 @@ public class Pause implements GameState
 	public void stateOfGame() 
 	{
 		engine.startgame(false);
-		System.out.print("The game has already  started") ;		
+		System.out.print("The game has paused \n") ;		
 	}
 
 	@Override

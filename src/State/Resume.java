@@ -1,11 +1,5 @@
 package State;
 
-import java.util.List;
-
-import factory.I_Player;
-import factory.I_enemy;
-import factory.Level;
-
 public class Resume implements GameState
 {
 	
@@ -24,13 +18,13 @@ public class Resume implements GameState
 	public void leftButtonAction()
 	{
 		engine.movePlayerL();
-		System.out.print("Player moves left \n") ;
+		System.out.print("Player moves left " + engine.getLevel().getPlayer().getxCoord() + " " + engine.getLevel().getPlayer().getyCoord() + "\n") ;
 	}
 
 	public void RightButtonAction() 
 	{
 		engine.movePlayerR();
-		System.out.print("Player moves right \ns") ;
+		System.out.print("Player moves right " + engine.getLevel().getPlayer().getxCoord() + " " + engine.getLevel().getPlayer().getyCoord() + "\n") ;
 	}
 
 	public void PauseGameAction()

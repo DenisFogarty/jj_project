@@ -29,6 +29,11 @@ public class Level {
 		
 		this.Player = player ;
 	}
+	
+	public I_Player getPlayer()
+	{
+		return this.Player ;
+	}
 	public int getWidth() {
 		return width;
 	}

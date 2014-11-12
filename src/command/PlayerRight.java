@@ -1,6 +1,5 @@
 package command;
 
-import factory.I_Player;
 import State.GameState;
 
 //Concrete class

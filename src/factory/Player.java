@@ -3,23 +3,26 @@ package factory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player implements I_Player,GameObject
+import bridge.Drawing;
+import bridge.Shape;
+
+public class Player extends Shape implements I_Player,GameObject
 {
 	private String name ;
 	private int x,y,health ;
     private List<I_Observer> observers ;
     private ChangeManager chman ;
+    private Drawing drawing ;
 
-
-	protected Player( String name, int health,int x,int y,ChangeManager c)
+	Player(String name, int health,int x,int y,ChangeManager c)
 	{
+		
 		this.name = name ;
 		this.health = health;
 		this.x = x;
 		this.y = y ;
 		observers = new ArrayList<I_Observer>();
 		this.chman = c;
-
 	}
 	@Override
 	public void setname(String name) {
@@ -56,8 +59,7 @@ public class Player implements I_Player,GameObject
 
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
-		
+		 drawing.drawPlayer(this.getxCoord(), this.getyCoord());
 	}
 
 	@Override
@@ -72,7 +74,7 @@ public class Player implements I_Player,GameObject
 
 	@Override
 	public void setCoordinates(int x, int y) {
-		this.x = y ;
+		this.x = x ;
 		this.y = y ;
 	}
 	
@@ -134,5 +136,8 @@ public class Player implements I_Player,GameObject
 		notifyobservers();
 	}
 	
-	
+	public void setDrawType(Drawing drawing)
+	{
+		this.drawing = drawing ;
+	}
 }

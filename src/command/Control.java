@@ -1,8 +1,5 @@
 package command;
 
-import factory.I_Player;
-
-
 //Creates the commands
 public class Control
 {  
