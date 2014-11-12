@@ -2,6 +2,7 @@ package State;
 
 import java.util.Scanner;
 
+import command.Command;
 import command.Control;
 import command.OffGame;
 import command.PauseGame;
@@ -14,15 +15,16 @@ public class TestGameState
 	public static void main(String[] args)
 	{
 		GameEngine newGame = new GameEngine() ;
-		newGame.setGameState(newGame.getStartsate() );
-		newGame.getStartsate().stateOfGame();
+		newGame.startgame(true);
+		System.out.print("The game has started \n") ;
+		newGame.setGameState(new Resume(newGame));
 		
 		Control control = new Control() ;
-		PlayerRight pr = new PlayerRight(newGame.getResume()) ;
-		PlayerLeft pl = new PlayerLeft(newGame.getResume()) ;
-		PauseGame pg = new PauseGame(newGame.getGameState()) ;
-		OffGame og = new OffGame(newGame.getGameState()) ;
-		ResumeGame rg = new ResumeGame(newGame.getGameState()) ;
+		Command pr = new PlayerRight(newGame) ;
+		Command pl = new PlayerLeft(newGame) ;
+		Command pg = new PauseGame(newGame) ;
+		Command og = new OffGame(newGame) ;
+		Command rg = new ResumeGame(newGame) ;
 		
 		control.setCommand(pr, pl, pg, og, rg);
 		
@@ -30,24 +32,24 @@ public class TestGameState
 		String line ;
 		while(!(newGame.getGameState() instanceof Off))
 		{
-			System.out.print("Type start or pause or resume or off or move player \n") ;
+			System.out.print("Type pause or resume or off or move player \n") ;
 			line = scan.nextLine() ;
 			
 			if(line.equals("p"))
 			{	
-				newGame.setGameState(newGame.getPause()) ;
+				//newGame.setGameState(new Pause(newGame)) ;
 				control.pauseGame();
 				//newGame.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("r"))
 			{ 
-				newGame.setGameState(newGame.getResume()) ;
+				//newGame.setGameState(new Resume(newGame)) ;
 				control.resumeGame();
 				//gameMachine.getGameState().stateOfGame() ;
 			}
 			else if(line.equals("off"))
 			{
-				newGame.setGameState(new Off()) ;
+				//newGame.setGameState(new Off()) ;
 				control.offGame();
 				//gameMachine.getGameState().stateOfGame() ;
 			}

@@ -3,6 +3,9 @@ package factory;
 import java.util.ArrayList;
 import java.util.List;
 
+import bridge.Drawing;
+import bridge.G1_Draw;
+
 public class Enemy implements I_enemy,GameObject {
 
 	private String name ;
@@ -10,6 +13,8 @@ public class Enemy implements I_enemy,GameObject {
     private List<I_Observer> observers ;
     private List<I_Subject> Subjects ;
     private ChangeManager chman ;
+    private Drawing drawing ;
+    
 	protected Enemy( String name, int health,int x,int y,ChangeManager c)
 	{
 		this.name = name ;
@@ -34,25 +39,21 @@ public class Enemy implements I_enemy,GameObject {
 
 	@Override
 	public void setname(String name) {
-		// TODO Auto-generated method stub
 		 this.name = name;
 	}
 
 	@Override
 	public String getname() {
-		// TODO Auto-generated method stub
 		return this.name;
 	}
 
 	@Override
 	public int getxCoord() {
-		// TODO Auto-generated method stub
 		return x;
 	}
 
 	@Override
 	public int getyCoord() {
-		// TODO Auto-generated method stub
 		return y;
 	}
 
@@ -64,22 +65,18 @@ public class Enemy implements I_enemy,GameObject {
 
 	@Override
 	public void setxCoord(int x) {
-		// TODO Auto-generated method stub
 		this.x = x;
 
 	}
 
 	@Override
 	public void setyCoord(int y) {
-		// TODO Auto-generated method stub
 		 this.y = y;
 	}
 
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
-		System.out.println("drawing enemy");
-
+		drawing.drawEnemy(this.getxCoord(), this.getyCoord());
 	}
 	public String toString()
 	{
@@ -118,6 +115,11 @@ public class Enemy implements I_enemy,GameObject {
 	public void update(I_Subject ob) {
 		this.chman.update(ob) ;
 		
+	}
+	
+	public void setDrawType(Drawing drawing)
+	{
+		this.drawing = drawing ;
 	}
 
 }

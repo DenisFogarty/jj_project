@@ -1,20 +1,21 @@
 package command;
 
+import State.GameEngine;
 import State.GameState;
 
 //Concrete command class
 public class PauseGame implements Command
 {
-	GameState targetState ;
+	GameEngine engine ;
 	
-	public PauseGame(GameState state)
+	public PauseGame(GameEngine engine)
 	{
-		this.targetState = state ;
+		this.engine = engine ;
 	}
 	
 	public void execute() 
 	{
-		this.targetState.PauseGameAction() ;
+		this.engine.getGameState().PauseGameAction() ;
 	}
 
 }

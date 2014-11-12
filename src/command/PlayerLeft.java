@@ -1,19 +1,20 @@
 package command;
 
+import State.GameEngine;
 import State.GameState;
 
 //Concrete class
 public class PlayerLeft implements Command
 {
-	GameState targetState ;
+	GameEngine engine ;
 	
-	public PlayerLeft(GameState state)
+	public PlayerLeft(GameEngine engine)
 	{
-		this.targetState = state ;
+		this.engine = engine ;
 	}
 
 	public void execute()
 	{
-		this.targetState.leftButtonAction(); ; 
+		this.engine.getGameState().leftButtonAction(); ; 
 	}
 }

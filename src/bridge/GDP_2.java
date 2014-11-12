@@ -2,7 +2,7 @@ package bridge;
 
 public class GDP_2 
 {
-	public static void drawAnEnemy() 
+	public static void drawAnEnemy(int i, int j) 
 	{
 		System.out.print("The enemy is drawn on the screen \n") ;
 	}

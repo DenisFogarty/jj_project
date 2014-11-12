@@ -1,19 +1,21 @@
 package command;
 
+import State.GameEngine;
 import State.GameState;
+import State.Off;
 
 //Concrete class
 public class OffGame implements Command
 {
-	GameState targetState ;
+	GameEngine engine ;
 	
-	public OffGame(GameState state)
+	public OffGame(GameEngine engine)
 	{
-		this.targetState = state ;
+		this.engine = engine ;
 	}
 
 	public void execute()
 	{
-		this.targetState.OffGameAction(); ; 
+		engine.setGameState(new Off());
 	}
 }

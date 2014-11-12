@@ -12,8 +12,8 @@ public abstract class Shape
 		}
 		
 		@Override
-		public void drawEnemy() {
-			myDrawing.drawEnemy() ;
+		public void drawEnemy(int i, int j) {
+			myDrawing.drawEnemy(i, j) ;
 		}
 	} ;
 	

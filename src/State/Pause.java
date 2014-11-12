@@ -29,7 +29,6 @@ public class Pause implements GameState
 
 	public void PauseGameAction() 
 	{
-		engine.setGameState(engine.getPause());
 		System.out.print("The game cannot change state \n") ;
 	}
 
@@ -39,8 +38,9 @@ public class Pause implements GameState
 	}
 
 	@Override
-	public void ResumeGameAction() {
-		// TODO Auto-generated method stub
-		
+	public void ResumeGameAction() 
+	{
+		engine.setGameState(new Resume(engine));
+		System.out.print("The game has resumed \n") ;	
 	}
 }
