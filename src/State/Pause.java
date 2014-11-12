@@ -1,43 +1,46 @@
 package State;
 
-import java.util.List;
-
-import factory.I_Player;
-import factory.I_enemy;
-import factory.Level;
 
 public class Pause implements GameState
 {
-	public void stateOfGame(I_Player play,Level lev,List<I_enemy> enemyList) 
+	
+	private GameEngine engine ;
+	public Pause(GameEngine gameEngine) {
+		this.engine = gameEngine ;
+	}
+
+	public void stateOfGame() 
 	{
-		System.out.print("The game has been paused \n") ;		
+		engine.startgame(false);
+		System.out.print("The game has paused \n") ;		
 	}
 
 	@Override
-	public void leftButtonAction(I_Player play) {
+	public void leftButtonAction() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void RightButtonAction(I_Player play) {
+	public void RightButtonAction() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void PauseGameAction(I_Player player) 
+	public void PauseGameAction() 
 	{
 		System.out.print("The game cannot change state \n") ;
 	}
 
-	public void OffGameAction(I_Player player) 
+	public void OffGameAction() 
 	{
 		
 	}
 
 	@Override
-	public void ResumeGameAction(I_Player player) {
-		// TODO Auto-generated method stub
-		
+	public void ResumeGameAction() 
+	{
+		engine.setGameState(new Resume(engine));
+		System.out.print("The game has resumed \n") ;	
 	}
 }

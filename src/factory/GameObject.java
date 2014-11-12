@@ -1,7 +1,8 @@
 package factory;
 
+import bridge.Drawing;
 
-public interface GameObject extends I_Subject,I_Observer   {
+public interface GameObject extends I_Subject,I_Observer {
 	public void setname(String name);
 	public String getname() ;
 	public int getxCoord();

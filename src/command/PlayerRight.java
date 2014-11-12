@@ -1,20 +1,20 @@
 package command;
 
-import factory.I_Player;
+import State.GameEngine;
 import State.GameState;
 
 //Concrete class
 public class PlayerRight implements Command
 {
-	GameState targetState ;
+	GameEngine engine ;
 	
-	public PlayerRight(GameState state)
+	public PlayerRight(GameEngine engine)
 	{
-		this.targetState = state ;
+		this.engine = engine ;
 	}
 
-	public void execute(I_Player player)
+	public void execute()
 	{
-		this.targetState.RightButtonAction(player) ; 
+		this.engine.getGameState().RightButtonAction() ; 
 	}
 }

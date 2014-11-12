@@ -1,21 +1,21 @@
 package command;
 
-import factory.I_Player;
+import State.GameEngine;
 import State.GameState;
 
 //Concrete command class
 public class ResumeGame implements Command
 {
-	GameState targetState ;
+	GameEngine engine ;
 	
-	public ResumeGame(GameState state)
+	public ResumeGame(GameEngine engine)
 	{
-		this.targetState = state ;
+		this.engine = engine ;
 	}
 	
-	public void execute(I_Player player) 
+	public void execute() 
 	{
-		this.targetState.ResumeGameAction(player) ;
+		this.engine.getGameState().ResumeGameAction() ;
 	}
 
 }

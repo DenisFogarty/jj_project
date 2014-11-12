@@ -1,20 +1,21 @@
 package command;
 
-import factory.I_Player;
+import State.GameEngine;
 import State.GameState;
+import State.Off;
 
 //Concrete class
 public class OffGame implements Command
 {
-	GameState targetState ;
+	GameEngine engine ;
 	
-	public OffGame(GameState state)
+	public OffGame(GameEngine engine)
 	{
-		this.targetState = state ;
+		this.engine = engine ;
 	}
 
-	public void execute(I_Player player)
+	public void execute()
 	{
-		this.targetState.OffGameAction(player); ; 
+		engine.setGameState(new Off());
 	}
 }

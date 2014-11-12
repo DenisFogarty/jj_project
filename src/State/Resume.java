@@ -1,40 +1,45 @@
 package State;
 
-import java.util.List;
-
-import factory.I_Player;
-import factory.I_enemy;
-import factory.Level;
-
 public class Resume implements GameState
 {
 	
-	public void stateOfGame(I_Player play,Level lev,List<I_enemy> enemyList) 
+	private GameEngine engine ;
+	
+	public Resume(GameEngine engine)
 	{
-		System.out.print("The game has resumed \n") ;		
+		this.engine = engine ;
+	}
+	public void stateOfGame() 
+	{
+		System.out.print("resumed \n") ;		
 	}
 
-	public void leftButtonAction(I_Player player)
+	public void leftButtonAction()
 	{
-		
-		System.out.print("Player moves left \n") ;
+		engine.movePlayerL();
+		System.out.print("Player moves left " + engine.getLevel().getPlayer().getxCoord() + " " + engine.getLevel().getPlayer().getyCoord() + "\n") ;
+		engine.getLevel().getPlayer().draw();
 	}
 
-	public void RightButtonAction(I_Player player) 
+	public void RightButtonAction() 
 	{
-		player.move();
-		System.out.print("Player moves right \ns") ;
+		engine.movePlayerR();
+		System.out.print("Player moves right " + engine.getLevel().getPlayer().getxCoord() + " " + engine.getLevel().getPlayer().getyCoord() + "\n") ;
+		engine.getLevel().getPlayer().draw();
 	}
 
-	public void PauseGameAction(I_Player player) 
+	public void PauseGameAction()
+	{
+		engine.setGameState(new Pause(engine));
+		System.out.print("The game has beehinkhbiub,uhbniuhn paused \n") ;
+	}
+
+	public void OffGameAction()
 	{
 	}
 
-	public void OffGameAction(I_Player player)
+	public void ResumeGameAction() 
 	{
-	}
-
-	public void ResumeGameAction(I_Player player) 
-	{
+		System.out.print("The game cannot change state \n") ;
 	}
 }
