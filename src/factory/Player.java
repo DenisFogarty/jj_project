@@ -84,11 +84,7 @@ public class Player extends Shape implements I_Player,GameObject
 	}
 	
 	public void attach(I_Observer observer) {
-		// TODO Auto-generated method stub
-		System.out.println("ADDING");
-		System.out.println(observers.size());
 		chman.register(this, observer) ;
-		observers.add(observer) ;
 	}
 
 	@Override

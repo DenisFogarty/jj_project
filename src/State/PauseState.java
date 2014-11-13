@@ -1,14 +1,15 @@
 package State;
 
 
-public class Pause implements GameState
+public class PauseState implements GameState
 {
 	
 	private GameEngine engine ;
-	public Pause(GameEngine gameEngine) {
+	public PauseState(GameEngine gameEngine) {
 		this.engine = gameEngine ;
 	}
 
+	//called when a pause state is created
 	public void stateOfGame() 
 	{
 		engine.startgame(false);
@@ -27,6 +28,7 @@ public class Pause implements GameState
 		
 	}
 
+	//is called when already in pause state
 	public void PauseGameAction() 
 	{
 		System.out.print("The game cannot change state \n") ;
@@ -37,10 +39,10 @@ public class Pause implements GameState
 		
 	}
 
-	@Override
+	//sets to resume state
 	public void ResumeGameAction() 
 	{
-		engine.setGameState(new Resume(engine));
+		engine.setGameState(new ResumeState(engine));
 		System.out.print("The game has resumed \n") ;	
 	}
 }

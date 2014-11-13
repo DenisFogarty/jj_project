@@ -1,5 +1,6 @@
 package bridge;
 
+//class used to implement an external drawing program
 public class GDP_1 
 {
 	public static void draw_an_enemy(int i, int j)

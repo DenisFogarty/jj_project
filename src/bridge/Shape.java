@@ -24,14 +24,4 @@ public abstract class Shape
 	{
 		
 	}
-	
-	/*protected void drawEnemy()
-	{
-		myDrawing.drawEnemy() ;
-	}
-	
-	protected void drawPlayer()
-	{
-		myDrawing.drawPlayer() ;
-	}*/
 }

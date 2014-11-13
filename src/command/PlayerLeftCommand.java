@@ -3,12 +3,12 @@ package command;
 import State.GameEngine;
 import State.GameState;
 
-//Concrete class
-public class PlayerLeft implements Command
+//Concrete command class
+public class PlayerLeftCommand implements Command
 {
 	GameEngine engine ;
 	
-	public PlayerLeft(GameEngine engine)
+	public PlayerLeftCommand(GameEngine engine)
 	{
 		this.engine = engine ;
 	}

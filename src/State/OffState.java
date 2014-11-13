@@ -2,7 +2,7 @@ package State;
 
 import factory.I_Player;
 
-public class Off implements GameState
+public class OffState implements GameState
 {
 	public void stateOfGame()
 	{

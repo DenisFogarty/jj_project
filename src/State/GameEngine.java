@@ -29,7 +29,9 @@ public class GameEngine {
 			change = new ChangeManager();
 			enemyList = new ArrayList<I_enemy>() ;
 			player = (I_Player) FactoryCreator.getFactory("player").createGameobject("player","Playa",201,0,56,change) ;
+			//type of drawing program going to be used
 			player.setDrawType(g1) ;
+			//player is drawn to the screen
 			player.draw();
 
 			String[] enemyType = {"small enemy", "regular enemy", "large enemy"} ; 
@@ -37,8 +39,8 @@ public class GameEngine {
 			level.addPlayer(player);
 			for(int i = 0 ; i <= Math.random()*100 ; i++) 
 			{
-				int xpos = level.getWidth()/2 + (int)Math.random()* (level.getWidth() - level.getWidth()/2) ;
-				int ypos = level.getHeight()/2 + (int)Math.random()* (level.getHeight() - level.getHeight()/2) ;
+				int xpos = level.getWidth()/2 + (int)(Math.random()* (level.getWidth() - level.getWidth()/2)) ;
+				int ypos = level.getHeight()/2 + (int)(Math.random()* (level.getHeight() - level.getHeight()/2)) ;
 				int temp = (int)Math.random()*3 ;
 				enemyList.add(FactoryCreator.getFactory(enemyType[temp]).createEnemy(enemyType[temp], "Enemy" + i, xpos, ypos, change));
 				enemyList.get(i).setDrawType(g1) ;

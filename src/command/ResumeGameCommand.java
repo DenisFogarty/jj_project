@@ -4,11 +4,11 @@ import State.GameEngine;
 import State.GameState;
 
 //Concrete command class
-public class ResumeGame implements Command
+public class ResumeGameCommand implements Command
 {
 	GameEngine engine ;
 	
-	public ResumeGame(GameEngine engine)
+	public ResumeGameCommand(GameEngine engine)
 	{
 		this.engine = engine ;
 	}

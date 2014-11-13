@@ -1,6 +1,6 @@
 package bridge;
 
-
+//concrete class of drawing
 public class G1_Draw implements Drawing
 {
 	public void drawEnemy(int i, int j) 
