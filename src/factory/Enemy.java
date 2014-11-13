@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bridge.Drawing;
-import bridge.G1_Draw;
 
+//Should this be abstract?
 public class Enemy implements I_enemy,GameObject {
 
 	private String name ;
@@ -30,11 +30,6 @@ public class Enemy implements I_enemy,GameObject {
 	public int gethealthpoints() {
 		
 		return this.health;
-	}
-
-	@Override
-	public void sethealthpoints(int healthp) {
-		this.health = health ; 
 	}
 
 	@Override
@@ -120,6 +115,12 @@ public class Enemy implements I_enemy,GameObject {
 	public void setDrawType(Drawing drawing)
 	{
 		this.drawing = drawing ;
+	}
+
+	@Override
+	public void sethealthpoints(int healthp) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

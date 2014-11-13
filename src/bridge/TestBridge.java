@@ -22,5 +22,4 @@ public class TestBridge
 			myShapes[i].draw() ;
 		}
 	}
-}
-*/
+}*/

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import bridge.Drawing;
 import bridge.G1_Draw;
 import factory.ChangeManager;
-import factory.Enemy;
 import factory.FactoryCreator;
 import factory.I_Player;
 import factory.I_enemy;
@@ -21,10 +20,6 @@ public class GameEngine {
 	private ArrayList<I_enemy> enemyList ;
 	private ChangeManager change ;
 	Drawing g1 = new G1_Draw() ;
-
-//	public GameEngine()
-//	{	
-//	}
 
 
 	public void startgame(boolean startState)
