@@ -73,7 +73,7 @@ public class GameEngine {
 	}
 
 	public void movePlayerR(){
-		if(player.getxCoord() <=level.getWidth()-2)
+		if(player.getxCoord() <= level.getWidth()-2)
 		{
 			player.moveRight() ;
 		}
@@ -82,7 +82,7 @@ public class GameEngine {
 
 	public void setGameState(GameState gs)
 	{
-		currentState= gs ;
+		currentState = gs ;
 	}
 
 	public  GameState getGameState()
@@ -99,6 +99,4 @@ public class GameEngine {
 	{
 		return level ;
 	}
-
-
 }

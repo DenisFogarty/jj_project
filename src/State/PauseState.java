@@ -25,7 +25,7 @@ public class PauseState implements GameState
 	@Override
 	public void RightButtonAction() {
 		// TODO Auto-generated method stub
-		
+		System.out.print("Game paused, cannot move \n");
 	}
 
 	//is called when already in pause state

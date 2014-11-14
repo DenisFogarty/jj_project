@@ -23,7 +23,6 @@ public class ChangeManager {
 			{
 				hash.get(sub).add(observer) ;
 			}
-			//hash.containsValue(observers.get(0));
 		}
 		else 
 		{
@@ -47,11 +46,10 @@ public class ChangeManager {
 					if( hash.get(a).contains((I_Observer)sub)==true)//looks for the subject which is cast to a observer
 
 					{
-						index =hash.get(a).indexOf((I_Observer)sub);
-						//I_Observer obba=
+						index = hash.get(a).indexOf((I_Observer)sub);
+						
 						((GameObject)(this.hash.get(a).get(index))).setCoordinates(((GameObject)sub).getxCoord(), ((GameObject)sub).getyCoord());
-						//	((GameObject)obba).setCoordinates(((GameObject)sub).getxCoord(), ((GameObject)sub).getyCoord());
-
+						
 						System.out.println(((GameObject)sub).getname() + " updates in "+((GameObject)a).getname()  );
 					}
 				}

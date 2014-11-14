@@ -8,6 +8,7 @@ public class GameEnemyFactory extends AbstractFactory {
 	public Enemy createEnemy(String type,String name,int x,int y,ChangeManager changemanager) {
 		Enemy enemy = (Enemy) enemyTypes.get(type);
 
+		//Checks for enemy type
 		if(enemy == null) {
 			if(type.equals("small enemy")) {
 				enemy = new Enemy(name, 100, x, y, changemanager);
