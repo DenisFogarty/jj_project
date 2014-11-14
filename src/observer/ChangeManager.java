@@ -15,7 +15,7 @@ public class ChangeManager implements I_ChangeManager {
 		this.hash = new HashMap<I_Subject,List<I_Observer>>() ;
 	}
 
-	
+
 	public void register(I_Subject sub ,I_Observer observer )
 	{
 		//method adds the observer to the to the Subjects entry in the hashmap
@@ -44,7 +44,7 @@ public class ChangeManager implements I_ChangeManager {
 		int index ;
 		if(hash.containsKey(sub))
 		{
-		
+
 			ArrayList<I_Observer> ob =  (ArrayList<I_Observer>) hash.get(sub) ;	//observer list from hashmap 
 			for(int i = 0 ; i < ob.size();i++)
 			{
@@ -58,7 +58,7 @@ public class ChangeManager implements I_ChangeManager {
 
 					{
 						index =hash.get(a).indexOf((I_Observer)sub);
-						
+
 						((GameEntity)(this.hash.get(a).get(index))).setCoordinates(((GameEntity)sub).getxCoord(), ((GameEntity)sub).getyCoord());
 						//updating coordinates
 						System.out.println(((GameEntity)sub).getname() + " updates in "+((GameEntity)a).getname()  );
@@ -74,18 +74,14 @@ public class ChangeManager implements I_ChangeManager {
 		//detaches Observer from a Subject
 		if(hash.containsKey(sub))
 		{ 
-		 
-		  
+
+
 			if(hash.get(sub).contains(observer)==true)
 			{
-				
-					hash.get(sub).remove(observer) ;
-			}
-		  	}
-		
-	
-		
-	}
 
+				hash.get(sub).remove(observer) ;
+			}
+		}
+	}
 }
 

@@ -109,7 +109,7 @@ public class Player extends Shape implements I_Player,GameEntity
 	@Override
 	public void notifyobservers() {
 		//System.out.println(observers.get(0));
-		
+	
 		chman.update(this);	
 	}
 	@Override
