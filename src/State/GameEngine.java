@@ -24,7 +24,7 @@ public class GameEngine {
 
 	private ChangeManager change ;
 	Drawing g1 = new G1_Draw() ;
-	
+
 
 
 	public void startgame(boolean startState)

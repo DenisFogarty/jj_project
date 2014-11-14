@@ -15,7 +15,9 @@ import command.PauseGameCommand;
 import command.PlayerLeftCommand;
 import command.PlayerRightCommand;
 import command.ResumeGameCommand;
+import factory.I_GameWorld_Object;
 import factory.I_enemy;
+import factory.Obstacle;
 import factory.Player;
 import State.GameEngine;
 import State.GameState;
@@ -56,10 +58,10 @@ public class TestCases {
 
 		//Checks player does not move
 		Player player = (Player) engine.getLevel().getPlayer();
-		int init_x = player.getxCoord();
+		int initX = player.getxCoord();
 
 		control.rightButton() ;
-		if(init_x != player.getxCoord()) {
+		if(initX != player.getxCoord()) {
 			fail("Player position changing when paused");
 		}
 	}
@@ -71,17 +73,17 @@ public class TestCases {
 		engine.setGameState(new ResumeState(engine));
 
 		Player player = (Player) engine.getLevel().getPlayer();
-		int init_x = player.getxCoord();
+		int initX = player.getxCoord();
 
 		//Moves the player, checks position updates
 		control.rightButton();
-		if(init_x == player.getxCoord()) {
+		if(initX == player.getxCoord()) {
 			fail("Player move left not updating");
 		}
-		init_x = player.getxCoord();
+		initX = player.getxCoord();
 
 		control.leftButton();
-		if(init_x == player.getxCoord()) {
+		if(initX == player.getxCoord()) {
 			fail("Player move right not updating");
 		}
 	}
@@ -119,10 +121,74 @@ public class TestCases {
 		//Takes first enemy in list
 		I_enemy enemy = enemies.get(0);
 		
-		Integer health = enemy.gethealthpoints();
-		
-		if(!(health instanceof Integer)) {
+		if(!(enemy.gethealthpoints() > 0)) {
 			fail("No health value in enemy");
+		}
+		
+		if(!(enemy.getname() instanceof String)) {
+			fail("No name for enemy");
+		}
+		
+		if(!(enemy.getxCoord() >= 0)) {
+			fail("No X co-ord");
+		}
+		
+		if(!(enemy.getyCoord() >= 0)) {
+			fail("No Y co-ord");
+		}
+	}
+	
+	@Test
+	public void checkPlayer() {
+		System.out.println("Checking player created");
+		engine.setGameState(new ResumeState(engine));
+		
+		Player player = (Player) engine.getLevel().getPlayer();
+		
+		if(!(player.gethealth() > 0)) {
+			fail("Player health not generated");
+		}
+		
+		if(!(player.getname() instanceof String)) {
+			fail("Player name not generated");
+		}
+		
+		if(!(player.getxCoord() >= 0)) {
+			fail("Player X co-ord not created");
+		}
+		
+		if(!(player.getyCoord() >= 0)) {
+			fail("Player Y co-ord not created");
+		}
+	}
+	
+	@Test
+	public void checkObjects() {
+		System.out.println("Checking objects created");
+		engine.setGameState(new ResumeState(engine));
+		
+		ArrayList<I_GameWorld_Object> obstacles = engine.getLevel().getObstacles();
+		
+		Obstacle obstacle = (Obstacle) obstacles.get(0);
+		
+		if(!(obstacle.getHeight() > 0)) {
+			fail("Obstacle height not set");
+		}
+		
+		if(!(obstacle.getObjectId() instanceof String)) {
+			fail("Obstacle ID not set");
+		}
+		
+		if(!(obstacle.getWidth() > 0)) {
+			fail("Obstacle width not set");
+		}
+		
+		if(!(obstacle.getX_Coord() > 0)) {
+			fail("Obstacle X co-ord not set");
+		}
+		
+		if(!(obstacle.getY_Coord() > 0)) {
+			fail("Obstacle Y co-ord not set");
 		}
 	}
 

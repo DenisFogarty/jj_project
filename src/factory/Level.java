@@ -96,7 +96,4 @@ public class Level implements I_Level {
 		
 	}
 	
-	
-	
-	
 }
