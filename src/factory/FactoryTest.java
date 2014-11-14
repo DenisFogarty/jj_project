@@ -1,5 +1,7 @@
 package factory;
 
+import observer.ChangeManager;
+
 public class FactoryTest {
 
 	public static void main(String[] args)
@@ -7,10 +9,10 @@ public class FactoryTest {
 
 		ChangeManager change = new ChangeManager();
 
-		Enemy enemy = FactoryCreator.getFactory("regular enemy").createEnemy("regular enemy", "Bob", 50, 25, change);
+		I_enemy enemy = FactoryCreator.getFactory("regular enemy").createEnemy("regular enemy", "Bob", 50, 25, change);
 
 
-		Enemy enemy2 = FactoryCreator.getFactory("small enemy").createEnemy("small enemy", "George", 75, 30, change);
+		I_enemy enemy2 = FactoryCreator.getFactory("small enemy").createEnemy("small enemy", "George", 75, 30, change);
 
 		System.out.println();
 

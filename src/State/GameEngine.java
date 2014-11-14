@@ -2,10 +2,12 @@ package State;
 
 import java.util.ArrayList;
 
+import observer.ChangeManager;
 import bridge.Drawing;
 import bridge.G1_Draw;
-import factory.ChangeManager;
 import factory.FactoryCreator;
+import factory.I_GameWorld_Object;
+import factory.I_Level;
 import factory.I_Player;
 import factory.I_enemy;
 import factory.Level;
@@ -15,11 +17,14 @@ import factory.Level;
 public class GameEngine {
 
 	private GameState currentState ; 
-	private Level level ;
+	private I_Level level ;
 	private I_Player player ;
 	private ArrayList<I_enemy> enemyList ;
+	private ArrayList<I_GameWorld_Object> WorldObjectList ;
+
 	private ChangeManager change ;
 	Drawing g1 = new G1_Draw() ;
+	
 
 
 	public void startgame(boolean startState)
@@ -27,6 +32,7 @@ public class GameEngine {
 		if(startState ==true)
 		{
 			change = new ChangeManager();
+			WorldObjectList = new ArrayList<I_GameWorld_Object>() ;
 			enemyList = new ArrayList<I_enemy>() ;
 			player = (I_Player) FactoryCreator.getFactory("player").createGameobject("player","Playa",201,0,56,change) ;
 			//type of drawing program going to be used
@@ -34,6 +40,7 @@ public class GameEngine {
 			//player is drawn to the screen
 			player.draw();
 
+			String[] WorldObjectType = {"obstacle world object"} ; 
 			String[] enemyType = {"small enemy", "regular enemy", "large enemy"} ; 
 			level = new Level(200, 100) ;
 			level.addPlayer(player);
@@ -47,8 +54,16 @@ public class GameEngine {
 				enemyList.get(i).draw();
 				player.attach(enemyList.get(i));
 				enemyList.get(i).attach(player);
+				
+				WorldObjectList.add(FactoryCreator.getFactory(WorldObjectType[0]).createGameWorldobject(WorldObjectType[0], WorldObjectType[0] + i, level.getWidth()/2 + (int)(Math.random()* (level.getWidth() - level.getWidth()/2)),
+						level.getWidth()/2 + (int)(Math.random()* (level.getWidth() - level.getWidth()/2)), 10, 20)) ;
+				WorldObjectList.get(i).setDrawType(g1) ;
+				WorldObjectList.get(i).draw();
 			}
-
+            
+			level.setObstacles(WorldObjectList);
+			
+			//each Subject becomes an observer of each of its own observers
 			for(int i = 0 ; i < enemyList.size() ; i++)
 			{
 				for(int j = 0 ; j < enemyList.size() ; j++)
@@ -59,8 +74,11 @@ public class GameEngine {
 					}
 				}
 			}
+			
+			//Adding enemies to level
+			level.setEnemyList(enemyList);
 
-			System.out.println(player.toString());
+			//System.out.println(player.toString());
 		}
 	}
 
@@ -73,7 +91,7 @@ public class GameEngine {
 	}
 
 	public void movePlayerR(){
-		if(player.getxCoord() <= level.getWidth()-2)
+		if(player.getxCoord() <=level.getWidth()-2)
 		{
 			player.moveRight() ;
 		}
@@ -82,7 +100,7 @@ public class GameEngine {
 
 	public void setGameState(GameState gs)
 	{
-		currentState = gs ;
+		currentState= gs ;
 	}
 
 	public  GameState getGameState()
@@ -95,8 +113,10 @@ public class GameEngine {
 		System.out.println("Game has been paused");
 	}
 
-	public Level getLevel()
+	public I_Level getLevel()
 	{
 		return level ;
 	}
+
+
 }

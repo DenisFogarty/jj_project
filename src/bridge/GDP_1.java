@@ -12,4 +12,9 @@ public class GDP_1
 	{
 		System.out.print("The player has been drawn on the screen at " + i + " " + j + " \n") ;
 	}
+	
+	public static void draw_world_object(int i, int j)
+	{
+		System.out.print("The World Object has been drawn on the screen at " + i + " " + j + " \n") ;
+	}
 }

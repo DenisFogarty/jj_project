@@ -3,10 +3,13 @@ package factory;
 import java.util.ArrayList;
 import java.util.List;
 
+import observer.ChangeManager;
+import observer.I_Observer;
+import observer.I_Subject;
 import bridge.Drawing;
 import bridge.Shape;
 
-public class Player extends Shape implements I_Player,GameObject
+public class Player extends Shape implements I_Player,GameEntity
 {
 	private String name ;
 	private int x,y,health ;
@@ -112,14 +115,7 @@ public class Player extends Shape implements I_Player,GameObject
 	@Override
 	public void update(I_Subject ob) {
 		this.chman.update(ob) ;
-		int index = observers.indexOf(ob) ;
-		// TODO Auto-generated method stub
-		if(index != -1)
-		{
-			((GameObject) this.observers.get(index)).setCoordinates(((GameObject) ob).getxCoord(), ((GameObject) ob).getyCoord());
-			//G_object.setCoordinates(ob.getxCoord(), ob.getyCoord());
-			System.out.println(((GameObject) ob).getname() + "position has changed : " + "/n" + ((GameObject) this.observers.get(index)).getname() + "notified");
-		}
+	
 	}
 	@Override
 	public void moveleft() {

@@ -1,13 +1,21 @@
 package factory;
 
-public class Obstacle implements I_Obstacle {
+import bridge.Drawing;
+
+public class Obstacle implements I_GameWorld_Object {
 	private int x_Coord ;
 	private int y_Coord ;
+	private int width,height ;
+	private String id ;
+    private Drawing drawing ;
+
 	
-	public Obstacle(int x,int y)
-	{
+	public Obstacle(String id,int x,int y,int width,int height)
+	{   this.id = id ;
 		this.x_Coord = x ;
 		this.y_Coord = y ;
+		this.height = height ;
+		this.width = width ;
 				
 	}
 
@@ -27,9 +35,51 @@ public class Obstacle implements I_Obstacle {
 		this.y_Coord = y_Coord;
 	}
 	
-	public void setPlatform_Coords(int x_Coord,int y_Coord) {
+	public void setWOrldObject_Coords(int x_Coord,int y_Coord) {
 		this.x_Coord = x_Coord ;
 		this.y_Coord = y_Coord;
+	}
+
+	@Override
+	public int getWidth() {
+		
+		return this.width ;
+	}
+
+	@Override
+	public int getHeight() {
+		return this.height;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+
+	@Override
+	public void setHeight(int height) {
+		this.height = height ;		
+	}
+
+	@Override
+	public String getObjectId() {
+		return this.id ;
+	}
+
+	@Override
+	public void setObjectid(String id) {
+		this.id = id ;
+	}
+
+	@Override
+	public void setDrawType(Drawing drawing) {
+		this.drawing = drawing ;		
+	}
+
+	@Override
+	public void draw() {
+		 drawing.drawworldobject(this.getX_Coord(), this.getY_Coord());
+		
 	}
 	
 	

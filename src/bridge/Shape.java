@@ -15,6 +15,12 @@ public abstract class Shape
 		public void drawEnemy(int i, int j) {
 			myDrawing.drawEnemy(i, j) ;
 		}
+
+		@Override
+		public void drawworldobject(int i, int j) {
+			myDrawing.drawworldobject(i, j);
+			
+		}
 	} ;
 	
 	

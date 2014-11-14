@@ -13,4 +13,8 @@ public class GDP_2
 		System.out.print("The player is drawn on the screen \n") ;
 	}
 
+	public static void drawWorldObject(int i, int j) {
+		System.out.print("World Object is drawn on the screen \n") ;		
+	}
+
 }

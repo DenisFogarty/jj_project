@@ -3,26 +3,26 @@ package factory;
 import java.util.ArrayList;
 import java.util.List;
 
+import observer.ChangeManager;
+import observer.I_Observer;
+import observer.I_Subject;
 import bridge.Drawing;
 
 //Should this be abstract?
-public class Enemy implements I_enemy,GameObject {
+public class Enemy implements I_enemy,GameEntity {
 
 	private String name ;
 	private int x,y,health ;
-    private List<I_Observer> observers ;
-    private List<I_Subject> Subjects ;
     private ChangeManager chman ;
     private Drawing drawing ;
     
-	protected Enemy( String name, int health,int x,int y,ChangeManager c)
+	public Enemy( String name, int health,int x,int y,ChangeManager c)
 	{
 		this.name = name ;
 		this.health = health;
 		this.x = x;
 		this.y = y ;
-		observers = new ArrayList<I_Observer>() ;
-		Subjects = new ArrayList<I_Subject>() ;
+		
 		this.chman = c;
 	}
 	
@@ -80,23 +80,14 @@ public class Enemy implements I_enemy,GameObject {
 
 	@Override
 	public void attach(I_Observer observer) {
-		// TODO Auto-generated method stub
 		chman.register(this, observer) ;
-		//observers.add(observer) ;
-	}
-	public void attachsuib(I_Subject sub) {
-		// TODO Auto-generated method stub
-		Subjects.add(sub) ;
+
 	}
 
 	@Override
 	public void detach(I_Observer observer) {
-		// TODO Auto-generated method stub
-		int index = this.observers.indexOf(observer);
-		if(index>0)
-		{
-		observers.remove(observer) ;
-		}
+	
+		chman.register(this, observer);
 	}
 
 	@Override
@@ -119,8 +110,7 @@ public class Enemy implements I_enemy,GameObject {
 
 	@Override
 	public void sethealthpoints(int healthp) {
-		// TODO Auto-generated method stub
-		
+		this.health = healthp ;
 	}
 
 }

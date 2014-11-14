@@ -2,12 +2,12 @@ package factory;
 
 import java.util.ArrayList;
 
-public class Level {
+public class Level implements I_Level {
 	
 	private int width ;
 	private int height ; 
 	private ArrayList<I_enemy> EnemyList ;
-	private ArrayList<I_Obstacle> obstacles ;
+	private ArrayList<I_GameWorld_Object> obstacles ;
     private I_Player Player ;
 	public Level(int width,int height)
 	{
@@ -73,19 +73,19 @@ public class Level {
 		
 	}
 	
-	public ArrayList<I_Obstacle> getObstacles() {
+	public ArrayList<I_GameWorld_Object> getObstacles() {
 		return obstacles;
 	}
 
-	public void setObstacles(ArrayList<I_Obstacle> obstacles) {
+	public void setObstacles(ArrayList<I_GameWorld_Object> obstacles) {
 		this.obstacles = obstacles;
 	}
 	
-	public void addEnemy(I_Obstacle ob)
+	public void addObstacle(I_GameWorld_Object ob)
 	{
 		if (this.obstacles ==null)
 		{
-			obstacles = new  ArrayList<I_Obstacle>() ;
+			obstacles = new  ArrayList<I_GameWorld_Object>() ;
 		}
 		
 		if(obstacles.contains(ob)!= true)

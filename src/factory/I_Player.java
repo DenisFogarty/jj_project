@@ -2,7 +2,7 @@ package factory;
 
 import bridge.Drawing;
 
-public interface I_Player extends GameObject {
+public interface I_Player extends GameEntity {
 
 	public int gethealth();
 	public void sethealthpoints(int healthp) ;

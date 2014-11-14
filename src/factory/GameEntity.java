@@ -1,6 +1,9 @@
 package factory;
 
-public interface GameObject extends I_Subject,I_Observer {
+import observer.I_Observer;
+import observer.I_Subject;
+
+public interface GameEntity extends I_Subject,I_Observer {
 	public void setname(String name);
 	public String getname() ;
 	public int getxCoord();

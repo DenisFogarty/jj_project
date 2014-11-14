@@ -12,4 +12,12 @@ public class G2_Draw implements Drawing
 	{
 		GDP_2.drawAPlayer(i, j) ;
 	}
+	
+	public void drawworldobject(int i, int j) 
+	{
+		GDP_2.drawWorldObject(i, j) ;
+	}
+
+	
+	
 }

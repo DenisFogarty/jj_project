@@ -1,4 +1,5 @@
-package factory;
+package observer;
+
 
 public interface I_Subject {
 

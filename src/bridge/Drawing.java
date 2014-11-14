@@ -5,4 +5,5 @@ public interface Drawing
 	abstract void drawEnemy(int i, int j) ;
 	
 	abstract void drawPlayer(int i, int j) ;
+	abstract void drawworldobject(int i, int j) ;
 }
