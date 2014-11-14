@@ -1,5 +1,8 @@
 package factory;
 
+import Flyweight.Enemy;
+import Flyweight.GameEntity;
+import Flyweight.I_GameWorld_Object;
 import observer.ChangeManager;
 
 public class GameEntityfactory extends AbstractFactory {

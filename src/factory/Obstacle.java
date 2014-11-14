@@ -1,5 +1,6 @@
 package factory;
 
+import Flyweight.I_GameWorld_Object;
 import bridge.Drawing;
 
 public class Obstacle implements I_GameWorld_Object {

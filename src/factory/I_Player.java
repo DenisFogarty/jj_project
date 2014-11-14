@@ -1,5 +1,6 @@
 package factory;
 
+import Flyweight.GameEntity;
 import bridge.Drawing;
 
 public interface I_Player extends GameEntity {

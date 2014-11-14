@@ -2,6 +2,9 @@ package factory;
 
 import java.util.ArrayList;
 
+import Flyweight.I_GameWorld_Object;
+import Flyweight.I_enemy;
+
 public class Level implements I_Level {
 	
 	private int width ;

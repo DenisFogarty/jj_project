@@ -1,6 +1,5 @@
 package factory;
 
-import Flyweight.GameEnemyFactory;
 
 
 public class FactoryCreator {

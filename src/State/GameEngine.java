@@ -3,13 +3,13 @@ package State;
 import java.util.ArrayList;
 
 import observer.ChangeManager;
+import Flyweight.I_GameWorld_Object;
+import Flyweight.I_enemy;
 import bridge.Drawing;
 import bridge.G1_Draw;
 import factory.FactoryCreator;
-import factory.I_GameWorld_Object;
 import factory.I_Level;
 import factory.I_Player;
-import factory.I_enemy;
 import factory.Level;
 
 

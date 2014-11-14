@@ -1,12 +1,11 @@
-package Flyweight;
+package factory;
 
 import java.util.HashMap;
 
-import factory.AbstractFactory;
-import factory.Enemy;
-import factory.GameEntity;
-import factory.I_GameWorld_Object;
-import factory.I_enemy;
+import Flyweight.Enemy;
+import Flyweight.GameEntity;
+import Flyweight.I_GameWorld_Object;
+import Flyweight.I_enemy;
 import observer.ChangeManager;
 
 //implements the flyweight pattern to conserve memory when creating enemies

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import factory.GameEntity;
+import Flyweight.GameEntity;
 
 public class ChangeManager implements I_ChangeManager {
 

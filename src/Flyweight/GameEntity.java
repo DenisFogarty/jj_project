@@ -1,4 +1,4 @@
-package factory;
+package Flyweight;
 
 import observer.I_Observer;
 import observer.I_Subject;
@@ -12,6 +12,5 @@ public interface GameEntity extends I_Subject,I_Observer {
 	public void setxCoord(int x);
 	public void setyCoord(int y);
 	public void draw();
-	//public Image  getObjectSprite() ;
 	
 }

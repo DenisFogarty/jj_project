@@ -2,8 +2,8 @@ package State;
 
 import java.util.List;
 
+import Flyweight.I_enemy;
 import factory.I_Player;
-import factory.I_enemy;
 import factory.Level;
 
 public interface GameState 

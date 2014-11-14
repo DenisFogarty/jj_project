@@ -6,6 +6,7 @@ import java.util.List;
 import observer.ChangeManager;
 import observer.I_Observer;
 import observer.I_Subject;
+import Flyweight.GameEntity;
 import bridge.Drawing;
 import bridge.Shape;
 

@@ -1,4 +1,4 @@
-package factory;
+package Flyweight;
 
 import bridge.Drawing;
 

@@ -10,7 +10,7 @@ import command.PlayerLeftCommand;
 import command.PlayerRightCommand;
 import command.ResumeGameCommand;
 
-public class TestGameState 
+public class StartGame
 {	
 	public static void main(String[] args)
 	{
@@ -36,7 +36,7 @@ public class TestGameState
 			line = scan.nextLine() ;
 			
 			if(line.equals("p"))
-			{	
+			{
 				control.pauseGame();
 			}
 			else if(line.equals("r"))

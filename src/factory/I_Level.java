@@ -2,6 +2,9 @@ package factory;
 
 import java.util.ArrayList;
 
+import Flyweight.I_GameWorld_Object;
+import Flyweight.I_enemy;
+
 public interface I_Level {
 
 	public void addPlayer(I_Player player);

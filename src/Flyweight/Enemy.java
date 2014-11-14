@@ -1,4 +1,4 @@
-package factory;
+package Flyweight;
 
 import java.util.ArrayList;
 import java.util.List;
