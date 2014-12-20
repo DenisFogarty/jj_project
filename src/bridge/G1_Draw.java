@@ -13,7 +13,7 @@ public class G1_Draw implements Drawing
 		GDP_1.draw_a_player(i, j) ;
 	}
 
-	public  void drawworldobject(int i, int j)
+	public void drawworldobject(int i, int j)
 	{
 		GDP_1.draw_world_object(i, j);
 	}

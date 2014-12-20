@@ -3,6 +3,7 @@ package factory;
 import Flyweight.GameEntity;
 import Flyweight.I_GameWorld_Object;
 import Flyweight.I_enemy;
+import Flyweight.Obstacle;
 import observer.ChangeManager;
 
 public class GameWorldObjectFactory extends AbstractFactory {

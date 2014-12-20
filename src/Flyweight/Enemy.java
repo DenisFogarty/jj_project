@@ -61,7 +61,6 @@ public class Enemy implements I_enemy,GameEntity {
 	@Override
 	public void setxCoord(int x) {
 		this.x = x;
-
 	}
 
 	@Override
@@ -73,6 +72,7 @@ public class Enemy implements I_enemy,GameEntity {
 	public void draw() {
 		drawing.drawEnemy(this.getxCoord(), this.getyCoord());
 	}
+	
 	public String toString()
 	{
 		return "Enemy name: " + this.name + " " + "pos " + x + " " + y ;

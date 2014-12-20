@@ -1,6 +1,5 @@
-package factory;
+package Flyweight;
 
-import Flyweight.I_GameWorld_Object;
 import bridge.Drawing;
 
 public class Obstacle implements I_GameWorld_Object {
@@ -17,7 +16,7 @@ public class Obstacle implements I_GameWorld_Object {
 		this.y_Coord = y ;
 		this.height = height ;
 		this.width = width ;
-				
+		
 	}
 
 	public int getX_Coord() {

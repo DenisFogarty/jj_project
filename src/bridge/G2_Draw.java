@@ -17,7 +17,4 @@ public class G2_Draw implements Drawing
 	{
 		GDP_2.drawWorldObject(i, j) ;
 	}
-
-	
-	
 }

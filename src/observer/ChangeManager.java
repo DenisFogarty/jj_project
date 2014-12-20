@@ -73,12 +73,9 @@ public class ChangeManager implements I_ChangeManager {
 	public void unregister(I_Subject sub, I_Observer observer) {
 		//detaches Observer from a Subject
 		if(hash.containsKey(sub))
-		{ 
-
-
+		{
 			if(hash.get(sub).contains(observer)==true)
 			{
-
 				hash.get(sub).remove(observer) ;
 			}
 		}
